@@ -88,6 +88,11 @@ public class AccountServiceImpl implements  AccountService {
         List<OperationEntity>  operations = operationRepository.findByAccount(accountNumber);
         return operationConverter.convertList(operations);
     }
+    public void transfer(String accountNumberA ,String accountNumberB,int amount) {
+    	
+    		withdraw(accountNumberA, amount);
+    		deposit(accountNumberB, amount);
+    }
 
     private AccountEntity getAccount(String accountNumber){
 
