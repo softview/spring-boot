@@ -10,6 +10,5 @@ import fr.softview.springboot.model.dto.OperationsDto;
 public interface AccountService {
 
     public Operation deposit(String accountNumber, int amount);
-    public Operation withdraw(String accountNumber, int amount);
     public OperationsDto history(String accountNumber);
 }

@@ -57,32 +57,6 @@ public class AccountServiceImpl implements  AccountService {
         return  operationConverter.convert(operation);
     }
 
-    public Operation withdraw(String accountNumber, int amount) {
-        checkAmount (amount);
-
-        AccountEntity account = getAccount (accountNumber);
-
-        int balance = account.getBalance();
-        balance = balance - amount;
-        if(balance < 0){
-            throw new OperationException(Constants.ERROR_INVALID_OPERATION);
-        }
-
-        OperationEntity operation = new OperationEntity();
-        operation.setBalance(balance);
-        operation.setAccount(accountNumber);
-        operation.setAmount(amount);
-        operation.setType(OperationType.WITHDRAW.toString());
-        operation.setDate(DateUtil.getCurrentDate());
-
-        operationRepository.save(operation);
-
-        //update account balance
-        account.setBalance(balance);
-        accountRepository.save(account);
-
-        return  operationConverter.convert(operation);
-    }
 
     public OperationsDto history(String accountNumber) {
         List<OperationEntity>  operations = operationRepository.findByAccount(accountNumber);

@@ -3,7 +3,6 @@ package fr.softview.springboot.controller;
 import fr.softview.springboot.model.business.Operation;
 import fr.softview.springboot.model.dto.DepositDto;
 import fr.softview.springboot.model.dto.OperationsDto;
-import fr.softview.springboot.model.dto.WithdrawDto;
 import fr.softview.springboot.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,13 +25,6 @@ public class AccountController {
     public Operation deposit (@RequestBody DepositDto depositDto) {
 
         return accountService.deposit(depositDto.getAccountNumber(), depositDto.getAmount());
-    }
-
-    @RequestMapping(value = "/withdraw", method = RequestMethod.POST, produces = "application/json")
-    @ResponseBody
-    public Operation withdraw (@RequestBody WithdrawDto withdrawDto) {
-
-        return accountService.withdraw(withdrawDto.getAccountNumber(), withdrawDto.getAmount());
     }
 
     @RequestMapping(value = "/history/{accountNumber}", produces = "application/json")

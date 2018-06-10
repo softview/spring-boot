@@ -1,10 +1,9 @@
 # Spring boot TDD
 Spring boot TDD project to a banking application
 
-Application currently handles 3 operations :
+Application currently handles 2 operations :
 
-- deposit
-- withdraw
+- deposit : deposit an amount on account
 - history : get account list of operation
 
 ## Database settings
@@ -18,9 +17,9 @@ Unit tests have been implemented for controller AccountController
 
 # Exercices - TODO
 
-- Implement unit tests for AccountService
-- Implement unit tests for reposity methods
+- withdraw : implement withdraw of an amount
+- transfer : implement transfer of an amout from an account to another account
 
-- Transfer : implement bank transfer of an amout from account A to B
-
-  
+- Implement unit tests for AccountController methods (withdraw, transfer and history)
+- Implement unit tests for AccountService operations (withdraw, transfer and history)
+- Implement unit tests for OperationRepository and OperationRepository methods
